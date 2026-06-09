@@ -1,0 +1,408 @@
+.container {
+    min-height: 100vh;
+    background: #050b1a;
+    color: white;
+    padding: 40px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .title {
+    font-size: 32px;
+    font-weight: 800;
+  
+    background: linear-gradient(
+      90deg,
+      #f59e0b,
+      #fbbf24
+    );
+  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .inputArea {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  
+  .input {
+    flex: 1;
+  
+    padding: 14px;
+  
+    border-radius: 12px;
+  
+    border: 1px solid #1f2937;
+  
+    background: #0b1224;
+    color: white;
+  
+    outline: none;
+  
+    transition:
+      border-color .2s ease,
+      background .2s ease;
+  }
+  
+  .input:focus,
+  .input:focus-visible {
+    outline: none;
+    box-shadow: none;
+  
+    border-color: #f59e0b;
+    background: #101a33;
+  }
+  
+  .button {
+    padding: 14px 18px;
+  
+    background: #f59e0b;
+    color: black;
+  
+    border: none;
+    border-radius: 12px;
+  
+    font-weight: bold;
+    cursor: pointer;
+  
+    transition: 0.2s;
+  }
+  
+  .button:hover {
+    opacity: 0.9;
+  }
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .column {
+    background: #0b1224;
+  
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+  
+    padding: 16px;
+  
+    position: relative;
+    overflow: visible;
+  }
+  
+  .column::before {
+    content: "";
+  
+    position: absolute;
+  
+    top: 0;
+    left: 0;
+  
+    width: 100%;
+    height: 4px;
+  
+    background: linear-gradient(
+      90deg,
+      #f59e0b,
+      #fbbf24
+    );
+  }
+  
+  .columnTitle {
+    font-size: 16px;
+    font-weight: bold;
+  
+    margin-bottom: 16px;
+  
+    color: #fbbf24;
+  
+    letter-spacing: 1px;
+  }
+  
+  .card {
+    cursor: grab;
+  
+    position: relative;
+    z-index: 1;
+  
+    background: linear-gradient(
+      145deg,
+      #1a2642,
+      #111827
+    );
+  
+    border: 1px solid rgba(245, 158, 11, 0.25);
+  
+    border-radius: 16px;
+  
+    padding: 18px;
+  
+    margin-bottom: 12px;
+  
+    box-shadow:
+      0 4px 20px rgba(245, 158, 11, 0.08);
+  
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+  
+    border-color: rgba(245, 158, 11, 0.7);
+  
+    box-shadow:
+      0 0 25px rgba(245, 158, 11, 0.25);
+  }
+  
+  .card:active {
+    cursor: grabbing;
+  
+    opacity: 0.85;
+  
+    transform: rotate(2deg);
+  
+    box-shadow:
+      0 0 35px rgba(245, 158, 11, 0.35);
+  }
+  
+  .cardActions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  
+  .cardButton {
+    padding: 6px 10px;
+  
+    border: none;
+    border-radius: 8px;
+  
+    cursor: pointer;
+  
+    background: #334155;
+    color: white;
+  
+    font-size: 12px;
+  
+    transition: 0.2s;
+  }
+  
+  .cardButton:hover {
+    background: #475569;
+  }
+  
+  .deleteButton {
+    padding: 6px 10px;
+  
+    border: none;
+    border-radius: 8px;
+  
+    cursor: pointer;
+  
+    background: #dc2626;
+    color: white;
+  
+    transition: 0.2s;
+  }
+  
+  .deleteButton:hover {
+    background: #b91c1c;
+  }
+  
+  .logoutButton {
+    border: none;
+  
+    background: #ef4444;
+    color: white;
+  
+    padding: 10px 16px;
+  
+    border-radius: 12px;
+  
+    cursor: pointer;
+  
+    transition: 0.2s;
+  }
+  
+  .logoutButton:hover {
+    background: #dc2626;
+  }
+  
+  .priorityArrow {
+    position: absolute;
+  
+    top: 12px;
+    right: 12px;
+  
+    cursor: pointer;
+  
+    color: #64748b;
+  
+    font-size: 24px;
+  
+    transition: all 0.2s ease;
+  }
+  
+  .priorityArrow:hover {
+    transform: scale(1.2);
+  }
+  
+  .priorityActive {
+    color: #ef4444;
+  
+    text-shadow:
+      0 0 8px rgba(239, 68, 68, 0.8);
+  }
+  
+  .cardPriority {
+    border-color: #ef4444;
+  
+    box-shadow:
+      0 0 20px rgba(239, 68, 68, 0.25);
+  }
+  
+  .chatButton {
+    position: fixed;
+  
+    right: 24px;
+    bottom: 24px;
+  
+    width: 64px;
+    height: 64px;
+  
+    border: none;
+    border-radius: 50%;
+  
+    cursor: pointer;
+  
+    font-size: 28px;
+  
+    background: linear-gradient(
+      135deg,
+      #f59e0b,
+      #fbbf24
+    );
+  
+    box-shadow:
+      0 0 25px rgba(245, 158, 11, 0.35);
+  
+    z-index: 9999;
+  }
+  
+  .chatWindow {
+    position: fixed;
+  
+    right: 24px;
+    bottom: 100px;
+  
+    width: 340px;
+    height: 450px;
+  
+    background: #0b1224;
+  
+    border: 1px solid #1f2937;
+  
+    border-radius: 16px;
+  
+    display: flex;
+    flex-direction: column;
+  
+    overflow: hidden;
+  
+    z-index: 9999;
+  }
+  
+  .chatHeader {
+    padding: 16px;
+  
+    font-weight: bold;
+  
+    background: #111827;
+  
+    color: #fbbf24;
+  }
+  
+  .chatMessages {
+    flex: 1;
+  
+    padding: 12px;
+  
+    overflow-y: auto;
+  
+    display: flex;
+    flex-direction: column;
+  
+    gap: 10px;
+  }
+  
+  .botMessage {
+    background: #1e293b;
+  
+    padding: 10px;
+  
+    border-radius: 12px;
+  
+    align-self: flex-start;
+  
+    max-width: 80%;
+  }
+  
+  .userMessage {
+    background: #f59e0b;
+  
+    color: black;
+  
+    padding: 10px;
+  
+    border-radius: 12px;
+  
+    align-self: flex-end;
+  
+    max-width: 80%;
+  }
+  
+  .chatInputArea {
+    display: flex;
+  
+    gap: 8px;
+  
+    padding: 12px;
+  
+    border-top: 1px solid #1f2937;
+  }
+  
+  .chatInputArea input {
+    flex: 1;
+  
+    background: #111827;
+  
+    border: 1px solid #374151;
+  
+    color: white;
+  
+    border-radius: 8px;
+  
+    padding: 10px;
+  }
+  
+  .chatInputArea button {
+    background: #f59e0b;
+  
+    border: none;
+  
+    padding: 10px 14px;
+  
+    border-radius: 8px;
+  
+    cursor: pointer;
+  }
